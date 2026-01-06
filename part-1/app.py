@@ -14,13 +14,15 @@ app = Flask(__name__)  # Create Flask app instance, __name__ tells Flask where t
 
 @app.route('/')  # Decorator that maps URL '/' (home page) to this function
 def home():
-    return "Hello Flask! Welcome to my first web server!"  # This text displays in the browser
+   # return "Hello Flask! Welcome to my first web server!"  # This text displays in the browser
+    return "<i>Hello Nikita! Welcome to my first web server!</i>"
+
 
 
 if __name__ == '__main__':
     app.run(debug=True)  # debug=True enables auto-reload and detailed error messages
-
-
+    
+    
 # =============================================================================
 # EXERCISES - Try these after running the basic app:
 # =============================================================================
@@ -28,6 +30,7 @@ if __name__ == '__main__':
 # Exercise 1.1: Change the return message
 #   - Modify the return statement to say "Hello [Your Name]!"
 #   - Save the file and refresh your browser (server auto-reloads!)
+
 #
 # Exercise 1.2: Return HTML instead of plain text
 #   - Change the return to: return "<h1>Hello Flask!</h1><p>This is HTML</p>"
@@ -39,3 +42,24 @@ if __name__ == '__main__':
 #   - Visit http://localhost:5000/about in your browser
 #
 # =============================================================================
+
+
+from flask import Flask
+
+app = Flask(__name__)
+
+# Home route
+@app.route('/')
+def home():
+    return "<h1>Hello Nikita!</h1><p>This is my first Flask app</p>"
+
+# About route
+@app.route('/about')
+def about():
+    return "<h2>About Page</h2><p>This is the about section</p>"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+##Note That : if you can run the exercise comment the above whole code !!
