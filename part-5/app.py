@@ -47,7 +47,12 @@ PROJECTS = [
 
 @app.route('/')
 def home():
-    return render_template('index.html', info=PERSONAL_INFO)
+    info = {
+        "name": "Nikita",
+        "title": "MCA Student | Flask Learner",
+        "bio": "Building projects using Python, Flask & Jinja2."
+    }
+    return render_template('index.html', info=info)
 
 
 @app.route('/about')
@@ -72,7 +77,12 @@ def project_detail(project_id):
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html', info=PERSONAL_INFO)
+    info = {
+        'email': 'nikitaahirrao16@gmail.com',
+        'github': 'https://github.com/Nikita-Ahirrao',
+        'linkedin': 'https://linkedin.com/in/Nikita_Ahirrao',
+    }
+    return render_template('contact.html', info=info)
 
 
 if __name__ == '__main__':

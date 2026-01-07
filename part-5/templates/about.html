@@ -3,20 +3,28 @@
 {% block title %}About | {{ info.name }}{% endblock %}
 
 {% block content %}
+
 <div class="card">
     <h2>About Me</h2>
-    <p style="font-size: 18px; margin-bottom: 20px;">{{ info.bio }}</p>
+    <p style="font-size: 18px; margin-bottom: 20px;">
+        {{ info.bio }}
+    </p>
 
     <div class="info-box">
         <strong>Jinja2 in Action:</strong>
-        <p>This page demonstrates passing multiple variables (info, skills) from Python to the template!</p>
+        <p>
+            This page demonstrates passing multiple variables
+            (<code>info</code>, <code>skills</code>) from Flask to Jinja2.
+        </p>
     </div>
 </div>
 
 <!-- Skills Section -->
 <div class="card">
     <h2>My Skills</h2>
-    <p style="margin-bottom: 20px;">Here are my technical skills with proficiency levels:</p>
+    <p style="margin-bottom: 20px;">
+        Here are my technical skills with proficiency levels:
+    </p>
 
     {% for skill in skills %}
     <div class="skill-item">
@@ -30,14 +38,18 @@
     </div>
     {% endfor %}
 
+    <!-- IMPORTANT FIX IS HERE -->
     <div class="info-box" style="margin-top: 20px;">
         <strong>For Loop Magic:</strong>
         <p>The skills above are rendered using a Jinja2 for loop:</p>
-        <code style="display: block; margin-top: 10px; background: #edf2f7; padding: 10px; border-radius: 5px;">
-            {&percnt; for skill in skills &percnt;}<br>
-            &nbsp;&nbsp;{{ skill.name }} - {{ skill.level }}&percnt;<br>
-            {&percnt; endfor &percnt;}
-        </code>
+
+        <pre style="background: #edf2f7; padding: 10px; border-radius: 5px;">
+{% raw %}
+{% for skill in skills %}
+    {{ skill.name }} - {{ skill.level }}%
+{% endfor %}
+{% endraw %}
+        </pre>
     </div>
 </div>
 
@@ -52,4 +64,5 @@
         <li>RESTful API design</li>
     </ul>
 </div>
+
 {% endblock %}
