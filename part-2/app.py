@@ -7,24 +7,20 @@ How to Run:
 3. Open browser: http://localhost:5000
 """
 
-from flask import Flask, render_template  # render_template lets us serve HTML files
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def home():
-    return render_template('index.html')  # Flask looks in 'templates/' folder for this file
-
+    return render_template('index.html')
 
 @app.route('/about')
 def about():
-    return render_template('about.html')  # Renders templates/about.html
-
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
-
 
 # =============================================================================
 # FOLDER STRUCTURE FOR THIS PART:

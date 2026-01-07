@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Flask Templates</title>
+    <title>Internship Task - Flask & Jinja2</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #f4f6f8;
             padding: 20px;
-            background-color: #f5f5f5;
         }
         .container {
-            background: white;
+            background: #ffffff;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         h1 {
-            color: #333;
+            color: #2c3e50;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 25px;
         }
         nav {
             margin-bottom: 20px;
@@ -27,50 +32,91 @@
         nav a {
             margin-right: 15px;
             color: #007bff;
+            font-weight: bold;
             text-decoration: none;
         }
         nav a:hover {
             text-decoration: underline;
         }
-        .highlight {
-            background-color: #e7f3ff;
+        code {
+            background-color: #f1f1f1;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
             padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #007bff;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        ul {
+            line-height: 1.7;
+        }
+        .badge {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #0d6efd;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin: 5px 5px 0 0;
+            font-size: 14px;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <!-- Navigation -->
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-        </nav>
+<div class="container">
 
-        <h1>Welcome to Flask Templates!</h1>
+    <!-- Navigation -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/internship">Internship Task</a>
+    </nav>
 
-        <p>This page is being served from an HTML file in the <code>templates/</code> folder.</p>
+    <h1>Flask Internship Task</h1>
 
-        <div class="highlight">
-            <strong>What's happening?</strong>
-            <p>When you visit this URL, Flask:</p>
-            <ol>
-                <li>Receives your browser's request</li>
-                <li>Matches the URL to the <code>@app.route('/')</code></li>
-                <li>Calls the <code>home()</code> function</li>
-                <li>Loads <code>templates/index.html</code></li>
-                <li>Sends this HTML back to your browser</li>
-            </ol>
-        </div>
+    <p>
+        This page is created as part of my <strong>Flask & Jinja2 Internship Assignment</strong>.
+        It demonstrates my understanding of Flask routing, templates, and project structure.
+    </p>
 
-        <h2>Why Use Templates?</h2>
-        <ul>
-            <li><strong>Separation of Concerns:</strong> Python handles logic, HTML handles presentation</li>
-            <li><strong>Easier to Maintain:</strong> Edit HTML without touching Python code</li>
-            <li><strong>Reusability:</strong> Same template can be used with different data</li>
-            <li><strong>Jinja2 Power:</strong> We can add Python-like logic to HTML (next part!)</li>
-        </ul>
+    <h2>📌 Technologies Used</h2>
+    <div>
+        <span class="badge">Python</span>
+        <span class="badge">Flask</span>
+        <span class="badge">Jinja2</span>
+        <span class="badge">HTML</span>
+        <span class="badge">CSS</span>
     </div>
+
+    <h2>📌 Flask Route Used</h2>
+    <p>This page is rendered using the following Flask route:</p>
+
+    <pre>
+@app.route('/internship')
+def internship():
+    return render_template('internship.html')
+    </pre>
+
+    <h2>📌 What I Learned</h2>
+    <ul>
+        <li>How Flask routes connect Python with HTML pages</li>
+        <li>How the <code>templates</code> folder works</li>
+        <li>Using <code>render_template()</code> to load pages</li>
+        <li>Structuring a Flask project professionally</li>
+    </ul>
+
+    <h2>📌 Next Enhancements</h2>
+    <ul>
+        <li>Passing dynamic data using Jinja2 variables</li>
+        <li>Using loops and conditions in templates</li>
+        <li>Creating a base layout using template inheritance</li>
+    </ul>
+
+    <p><a href="/">⬅ Back to Dashboard</a></p>
+
+</div>
 </body>
 </html>

@@ -3,94 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jinja2 Variables</title>
+    <title>Student Dashboard | Flask</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 800px;
+            max-width: 900px;
             margin: 50px auto;
             padding: 20px;
             background-color: #f0f4f8;
         }
+
         .container {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        h1 { color: #2d3748; }
+
         nav {
-            margin-bottom: 20px;
-            padding: 10px;
+            margin-bottom: 25px;
+            padding: 12px;
             background: #edf2f7;
-            border-radius: 5px;
+            border-radius: 6px;
         }
+
         nav a {
-            margin-right: 15px;
-            color: #4a5568;
+            margin-right: 18px;
+            color: #2d3748;
             text-decoration: none;
             font-weight: bold;
         }
-        nav a:hover { color: #2b6cb0; }
-        .highlight {
-            background: #ebf8ff;
-            border-left: 4px solid #4299e1;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
+
+        nav a:hover {
+            color: #2b6cb0;
         }
-        code {
-            background: #edf2f7;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: monospace;
+
+        h1 {
+            color: #2b6cb0;
+            margin-bottom: 10px;
         }
-        .variable-demo {
-            font-size: 24px;
+
+        p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .welcome-box {
+            font-size: 22px;
+            background: #bee3f8;
             color: #2b6cb0;
             padding: 20px;
-            background: #bee3f8;
-            border-radius: 5px;
             text-align: center;
-            margin: 20px 0;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .card-section {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            flex: 1;
+            background: #ebf8ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4299e1;
+        }
+
+        .card h3 {
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #edf2f7;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #718096;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <a href="/">Home</a>
-            <a href="/profile">Profile</a>
-            <a href="/skills">Skills</a>
-            <a href="/projects">Projects</a>
-        </nav>
 
-        <h1>Welcome to Jinja2 Variables!</h1>
+<div class="container">
 
-        <!-- HERE'S THE MAGIC: Using a variable passed from Python -->
-        <div class="variable-demo">
-            Hello, <strong>Nikita Ahirrao!!</strong>!
-        </div>
+    <!-- Navigation -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/skills">Skills</a>
+        <a href="/projects">Projects</a>
+    </nav>
 
-        <div class="highlight">
-            <strong>What just happened?</strong>
-            <p>In <code>app.py</code>, we wrote:</p>
-            <code>return render_template('index.html', name=student_name)</code>
-            <p>And in this HTML, we display it with:</p>
-            <code>{% raw %}{{ name }}{% endraw %}</code>
-        </div>
+    <!-- Page Title -->
+    <h1>Student Dashboard</h1>
+    <p>
+        This dashboard demonstrates how Flask passes dynamic data to HTML using
+        Jinja2 template variables.
+    </p>
 
-        <h2>The Double Curly Braces {% raw %}{{ }}{% endraw %}</h2>
-        <p>In Jinja2 templates, <code>{% raw %}{{ }}{% endraw %}</code> means "output this Python value here".</p>
-
-        <ul>
-            <li><code>{% raw %}{{ name }}{% endraw %}</code> - Outputs the value of <code>name</code></li>
-            <li><code>{% raw %}{{ name|upper }}{% endraw %}</code> - Outputs in UPPERCASE: <strong>{{ name|upper }}</strong></li>
-            <li><code>{% raw %}{{ name|lower }}{% endraw %}</code> - Outputs in lowercase: <strong>{{ name|lower }}</strong></li>
-            <li><code>{% raw %}{{ name|length }}{% endraw %}</code> - Length of the name: <strong>{{ name|length }}</strong> characters</li>
-        </ul>
-
-        <p>Explore the other pages to see more Jinja2 features!</p>
+    <!-- Dynamic Welcome Message -->
+    <div class="welcome-box">
+        👋 Welcome, <strong>{{ MCA Student | Python & Flask Enthusiast | AI Learner }}</strong>!
     </div>
+
+    <!-- Information Cards -->
+    <div class="card-section">
+        <div class="card">
+            <h3>👨‍💻 Student Info</h3>
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Course:</strong> {{ course }}</p>
+            <p><strong>College:</strong> {{ college }}</p>
+            <p><strong>Current Focus:</strong> {{ focus }}</p>
+            <p><strong>Name Length:</strong> {{ name | length }} characters</p>
+
+        </div>
+
+        <div class="card">
+            <h3>⚙ Jinja2 Filters</h3>
+                <p><strong>Original Name:</strong> {{ name }}</p>
+                <p><strong>Uppercase:</strong> {{ name | upper }}</p>
+                <p><strong>Lowercase:</strong> {{ name | lower }}</p>
+                <p><strong>Name Length:</strong> {{ name | length }} characters</p>
+                <p style="margin-top:10px; font-size:14px;">
+                Jinja2 filters allow transforming data directly inside HTML templates
+                without changing Python code.
+                </p>
+        </div>
+
+        <div class="card">
+            <h3>📌 Flask Concept</h3>
+            <ul>
+                <li>Flask handles backend routing</li>
+                <li>Data is processed in <code>app.py</code></li>
+                <li><code>render_template()</code> sends data to HTML</li>
+                <li>Jinja2 renders dynamic content</li>
+            </ul>
+            <p style="margin-top:10px; font-size:14px;">
+            This page demonstrates how Flask connects backend Python logic
+            with frontend HTML using Jinja2 templates.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Internship Task | Flask & Jinja2 Dashboard <br>
+        Created by Nikita Ahirrao
+    </footer>
+
+</div>
+
 </body>
 </html>

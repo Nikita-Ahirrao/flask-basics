@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Flask Templates</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,38 +48,65 @@
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <!-- Navigation -->
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-        </nav>
+<div class="container">
 
-        <h1>About This Project</h1>
+    <!-- Navigation -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </nav>
 
-        <p>This is the <strong>About</strong> page, rendered from <code>templates/about.html</code></p>
+    <h1>About This Project</h1>
 
-        <h2>The render_template() Function</h2>
-        <p>Here's how we render this page in Python:</p>
+    <p>
+        This is the <strong>About</strong> page of <strong>Part-2</strong> of my Flask project.
+        This page is rendered from <code>templates/about.html</code> using Flask.
+    </p>
 
-        <pre>
+    <h2>The <code>render_template()</code> Function</h2>
+
+    <p>
+        Flask uses the <code>render_template()</code> function to load HTML files from
+        the <code>templates</code> folder and send them to the browser.
+    </p>
+
+    <pre>
 @app.route('/about')
 def about():
     return render_template('about.html')
-        </pre>
+    </pre>
 
-        <h2>How Templates Work</h2>
-        <p>Flask uses a template engine called <strong>Jinja2</strong>. Right now we're just rendering static HTML, but in the next parts, we'll learn how to:</p>
+    <h2>How Templates Work in Flask</h2>
 
-        <ul>
-            <li>Pass variables from Python to HTML</li>
-            <li>Use loops to display lists</li>
-            <li>Use conditionals to show/hide content</li>
-            <li>Create reusable template layouts</li>
-        </ul>
+    <p>
+        Flask uses a template engine called <strong>Jinja2</strong>.
+        In this part, we are rendering static HTML pages, but templates allow us to
+        build dynamic web applications easily.
+    </p>
 
-        <p><a href="/">Back to Home</a></p>
-    </div>
+    <ul>
+        <li>Templates separate Python logic and HTML design</li>
+        <li>HTML files are stored inside the <code>templates</code> folder</li>
+        <li>Flask routes decide which page to load</li>
+        <li>Templates make applications clean and reusable</li>
+    </ul>
+
+    <p>
+        In upcoming parts, templates will be used to:
+    </p>
+
+    <ul>
+        <li>Pass data from Python to HTML</li>
+        <li>Use loops and conditions</li>
+        <li>Create reusable layouts</li>
+    </ul>
+
+    <p>
+        <a href="/">Back to Home</a>
+    </p>
+
+</div>
 </body>
 </html>
