@@ -99,11 +99,12 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="/">Home</a>
-        <a href="/dashboard">Dashboard</a>
-        <a href="/skills">Skills</a>
-        <a href="/projects">Projects</a>
-    </nav>
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('profile') }}">Profile</a>
+    <a href="{{ url_for('skills') }}">Skills</a>
+    <a href="{{ url_for('projects') }}">Projects</a>
+</nav>
+
 
     <!-- Page Title -->
     <h1>Student Dashboard</h1>
@@ -114,7 +115,7 @@
 
     <!-- Dynamic Welcome Message -->
     <div class="welcome-box">
-        👋 Welcome, <strong>{{ MCA Student | Python & Flask Enthusiast | AI Learner }}</strong>!
+        👋 Welcome, <strong>MCA Student | Python & Flask Enthusiast | AI Learner</strong>!
     </div>
 
     <!-- Information Cards -->

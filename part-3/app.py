@@ -11,40 +11,50 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# ---------------- HOME ----------------
 
 @app.route('/')
 def home():
-    student_name = "Alex"
-    return render_template('index.html', name=student_name)  # Pass variable to template as {{ name }}
+    return render_template(
+        'index.html',
+        title="MCA Student | Python & Flask Enthusiast | AI Learner",
+        name="Nikita",
+        course="MCA",
+        college="Your College",
+        focus="Flask & Jinja2"
+    )
 
+
+# ---------------- PROFILE ----------------
 
 @app.route('/profile')
 def profile():
-    user_data = {
-        'name': 'Sarah',
-        'age': 22,
-        'course': 'Web Development',
-        'is_enrolled': True
-    }
-    return render_template('profile.html',  # Pass multiple variables to template
-                           name=user_data['name'],
-                           age=user_data['age'],
-                           course=user_data['course'],
-                           is_enrolled=user_data['is_enrolled'])
+    return render_template(
+        'profile.html',
+        name="Sarah",
+        age=22,
+        course="Web Development",
+        email="sarah@email.com",
+        city="Pune",
+        is_enrolled=True
+    )
 
+
+# ---------------- SKILLS ----------------
 
 @app.route('/skills')
 def skills():
-    programming_skills = ['Python', 'HTML', 'CSS', 'JavaScript', 'Flask']
-    return render_template('skills.html', skills=programming_skills)  # Pass list to loop through in template
+    skills_list = ['Python', 'HTML', 'CSS', 'JavaScript', 'Flask']
+    return render_template('skills.html', skills=skills_list)
 
+# ---------------- PROJECTS ----------------
 
 @app.route('/projects')
 def projects():
-    project_list = [  # List of dictionaries - common pattern for database-like data
+    project_list = [
         {'name': 'Personal Website', 'status': 'Completed', 'tech': 'HTML/CSS'},
         {'name': 'Flask Blog', 'status': 'In Progress', 'tech': 'Python/Flask'},
-        {'name': 'Weather App', 'status': 'Planned', 'tech': 'JavaScript'},
+        {'name': 'Weather App', 'status': 'Planned', 'tech': 'JavaScript'}
     ]
     return render_template('projects.html', projects=project_list)
 
