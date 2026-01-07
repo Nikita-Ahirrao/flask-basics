@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Task List</h1>
+    <ul>
+        {% for task in tasks %}
+        <li>
+            <strong>{{ task.title|upper }}</strong> - 
+            {% if task.status == 'Completed' %}
+                <span style="color: green;">Done</span>
+            {% else %}
+                <span style="color: orange;">{{ task.status }}</span>
+            {% endif %}
+            <a href="{{ url_for('task_detail', task_id=task.id) }}">View</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
